@@ -1,43 +1,118 @@
-﻿<header class="topbar">
+﻿@{
+    ViewData["Title"] = "Email Builder";
+}
 
-    <div class="topbar-left">
-        <h2> Email Builder</h2>
+<link rel="stylesheet" href="~/grapesjs/grapes.min.css" />
+<link rel="stylesheet" href="~/css/editor.css" />
+<div class="editor-shell">
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <div class="topbar-left">
+
+            <h2>Email Builder</h2>
+
+        </div>
+
+        <div class="topbar-actions">
+
+            <button id="saveBtn">Save</button>
+
+            <button id="undoBtn">Undo</button>
+
+            <button id="redoBtn">Redo</button>
+
+            <button id="previewBtn">Preview</button>
+
+            <button id="desktopBtn">Desktop</button>
+
+            <button id="tabletBtn">Tablet</button>
+
+            <button id="mobileBtn">Mobile</button>
+
+            <button id="exportBtn">Export</button>
+
+            <button id="clearBtn">Clear</button>
+
+        </div>
+
+    </header>
+
+    <!-- MAIN LAYOUT -->
+
+    <div class="editor-layout">
+
+        <!-- LEFT SIDEBAR -->
+
+        <aside class="left-sidebar">
+
+            <div class="sidebar-title">
+                Blocks
+            </div>
+
+            <div id="blocks-container"></div>
+
+        </aside>
+
+        <!-- EDITOR -->
+
+        <main class="editor-main">
+
+            <div id="gjs"></div>
+
+        </main>
+
+        <!-- RIGHT SIDEBAR -->
+
+        <aside class="right-sidebar">
+
+            <div class="panel-section">
+
+                <div class="sidebar-title">
+                    Styles
+                </div>
+
+                <div id="styles-container"></div>
+
+            </div>
+
+            <div class="panel-section">
+
+                <div class="sidebar-title">
+                    Layers
+                </div>
+
+                <div id="layers-container"></div>
+
+            </div>
+
+            <div class="panel-section">
+
+                <div class="sidebar-title">
+                    Traits
+                </div>
+
+                <div id="traits-container"></div>
+
+            </div>
+
+        </aside>
+
     </div>
 
-    <div class="topbar-actions">
+</div><script src="~/grapesjs/grapes.min.js"></script><script src="~/js/editor-init.js"></script>
 
-        <button id="btn-save"> Save</button>
 
-        <button id="btn-undo"> Undo</button>
 
-        <button id="btn-redo"> Redo</button>
 
-        <button id="btn-preview"> Preview</button>
 
-    </div>
 
-</header>
 
-<div class="editor-layout">
 
-    <aside class="left-sidebar">
 
-        <div id="blocks-container"> </div>
 
-    </aside>
 
-    <main class="editor-main">
 
-        <div id="gjs"> </div>
 
-    </main>
 
-    <aside class="right-sidebar">
-
-        <div id="styles-container"> </div>
-
-        <div id="layers-container"> </div>
-
-    </aside>
-
-</div>
