@@ -6,35 +6,35 @@
 
 body {
     overflow: hidden;
-    font-family: Inter, sans-serif;
+    font-family: Arial;
     background: #0f172a;
 }
 
-/* MAIN APP */
+/* APP */
 
 .app-container {
     display: flex;
     height: 100vh;
-    background: #0f172a;
 }
 
 /* LEFT SIDEBAR */
 
 .left-sidebar {
-    width: 300px;
+    width: 280px;
     background: #111827;
     border-right: 1px solid #1f2937;
     display: flex;
     flex-direction: column;
     padding: 20px;
+    overflow-y: auto;
 }
 
 /* LOGO */
 
 .logo {
-    font-size: 24px;
-    font-weight: 700;
     color: white;
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 30px;
 }
 
@@ -42,42 +42,39 @@ body {
 
 .section-title {
     color: #94a3b8;
+    margin-bottom: 15px;
     font-size: 12px;
     letter-spacing: 2px;
-    margin-bottom: 20px;
 }
 
 /* BLOCKS */
 
-.blocks-container {
+#blocks-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
 }
 
-/* BLOCK CARD */
-
 .gjs-block {
     width: 100% !important;
-    min-height: 100px;
+    min-height: 90px;
+    border: none !important;
+    border-radius: 14px !important;
     background: #1e293b !important;
-    border: 1px solid #334155 !important;
-    border-radius: 14px;
     color: white !important;
-    box-shadow: none !important;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
     .gjs-block:hover {
-        transform: translateY(-3px);
-        border-color: #8b5cf6 !important;
-        background: #312e81 !important;
+        background: #8b5cf6 !important;
+        transform: translateY(-2px);
     }
 
-/* MAIN AREA */
+/* MAIN */
 
 .main-content {
     flex: 1;
@@ -94,97 +91,109 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 25px;
+    padding: 0 20px;
 }
 
-/* TOOLBAR BUTTONS */
+/* BUTTONS */
 
 .toolbar-btn {
     height: 42px;
     padding: 0 18px;
-    border: 1px solid #374151;
-    background: #1f2937;
-    color: white;
+    border: none;
     border-radius: 10px;
-    cursor: pointer;
+    background: #1e293b;
+    color: white;
     margin-right: 10px;
-    transition: all 0.2s ease;
+    cursor: pointer;
 }
 
     .toolbar-btn:hover {
-        background: #374151;
+        background: #334155;
     }
-
-/* EXPORT BUTTON */
 
 .export-btn {
     height: 42px;
-    padding: 0 22px;
+    padding: 0 20px;
     border: none;
-    background: linear-gradient( 135deg, #8b5cf6, #6366f1 );
+    border-radius: 10px;
+    background: #8b5cf6;
     color: white;
-    border-radius: 12px;
-    font-weight: 600;
     cursor: pointer;
-    transition: all 0.2s ease;
 }
 
-    .export-btn:hover {
-        transform: translateY(-2px);
-    }
-
-/* EDITOR AREA */
+/* EDITOR */
 
 .editor-area {
     flex: 1;
-    padding: 25px;
     overflow: hidden;
-    background: radial-gradient( circle at top left, rgba(99,102,241,0.15), transparent 40% ), #0f172a;
+    padding: 20px;
 }
-
-/* GRAPES CONTAINER */
 
 #gjs {
     height: 100%;
-    border-radius: 20px;
+    width: 100%;
     overflow: hidden;
-    border: 1px solid #1f2937;
+    border-radius: 18px;
 }
 
-/* RIGHT SIDEBAR */
+/* RIGHT PANEL */
 
 .right-sidebar {
     width: 320px;
     background: #111827;
     border-left: 1px solid #1f2937;
-    padding: 20px;
     overflow-y: auto;
+}
+
+/* PANEL TABS */
+
+.panel-tabs {
+    display: flex;
+    border-bottom: 1px solid #1f2937;
+}
+
+.tab-btn {
+    flex: 1;
+    height: 50px;
+    border: none;
+    background: #111827;
+    color: white;
+    cursor: pointer;
+}
+
+    .tab-btn:hover {
+        background: #1e293b;
+    }
+
+/* PANEL CONTENT */
+
+.panel-content {
+    padding: 15px;
 }
 
 /* STYLE MANAGER */
 
 .gjs-sm-sector {
     background: #1e293b;
-    border-radius: 12px;
-    padding: 10px;
-    margin-bottom: 15px;
     border: none !important;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
 }
 
 .gjs-sm-title {
-    background: transparent !important;
+    background: #334155 !important;
     color: white !important;
     border: none !important;
 }
 
 .gjs-sm-label {
-    color: #cbd5e1 !important;
+    color: white !important;
 }
 
 .gjs-field {
     background: #0f172a !important;
-    border-radius: 8px !important;
-    border: 1px solid #334155 !important;
+    border: none !important;
 }
 
 .gjs-input-holder input {
@@ -194,10 +203,12 @@ body {
 /* CANVAS */
 
 .gjs-cv-canvas {
-    background-color: #e5e7eb !important;
+    background: #e2e8f0 !important;
 }
 
-/* REMOVE DEFAULT BORDERS */
+.gjs-editor {
+    height: 100% !important;
+}
 
 .gjs-one-bg {
     background: #111827 !important;
@@ -206,12 +217,4 @@ body {
 .gjs-two-color {
     color: white !important;
 }
-
-.gjs-three-bg {
-    background: #8b5cf6 !important;
-}
-
-.gjs-four-color,
-.gjs-four-color-h:hover {
-    color: #8b5cf6 !important;
-}
+ 

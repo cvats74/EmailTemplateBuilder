@@ -8,10 +8,11 @@
 <div class="app-container">
 
     <!-- LEFT SIDEBAR -->
+
     <aside class="left-sidebar">
 
         <div class="logo">
-            EmailBuilder
+            Email Builder
         </div>
 
         <div class="sidebar-section">
@@ -20,34 +21,52 @@
                 BLOCKS
             </div>
 
-            <div class="blocks-container"></div>
+            <div id="blocks-container"></div>
 
         </div>
 
     </aside>
 
-    <!-- MAIN AREA -->
+    <!-- MAIN -->
+
     <main class="main-content">
 
         <!-- TOPBAR -->
+
         <header class="topbar">
 
-            <div class="topbar-left">
+            <div class="toolbar-left">
 
-                <button class="toolbar-btn">
+                <button id="desktopBtn" class="toolbar-btn">
                     Desktop
                 </button>
 
-                <button class="toolbar-btn">
+                <button id="tabletBtn" class="toolbar-btn">
+                    Tablet
+                </button>
+
+                <button id="mobileBtn" class="toolbar-btn">
                     Mobile
                 </button>
 
             </div>
 
-            <div class="topbar-right">
+            <div class="toolbar-right">
 
-                <button class="toolbar-btn">
+                <button id="undoBtn" class="toolbar-btn">
+                    Undo
+                </button>
+
+                <button id="redoBtn" class="toolbar-btn">
+                    Redo
+                </button>
+
+                <button id="previewBtn" class="toolbar-btn">
                     Preview
+                </button>
+
+                <button id="clearBtn" class="toolbar-btn">
+                    Reset
                 </button>
 
                 <button id="exportBtn" class="export-btn">
@@ -59,6 +78,7 @@
         </header>
 
         <!-- EDITOR -->
+
         <section class="editor-area">
 
             <div id="gjs"></div>
@@ -67,21 +87,40 @@
 
     </main>
 
-    <!-- RIGHT PANEL -->
+    <!-- RIGHT SIDEBAR -->
+
     <aside class="right-sidebar">
 
-        <div class="section-title">
-            STYLES
+        <div class="panel-tabs">
+
+            <button class="tab-btn">
+                Styles
+            </button>
+
+            <button class="tab-btn">
+                Layers
+            </button>
+
+            <button class="tab-btn">
+                Traits
+            </button>
+
         </div>
 
-        <div id="style-manager"></div>
+        <div class="panel-content">
+
+            <div id="styles-container"></div>
+
+            <div id="layers-container"></div>
+
+            <div id="traits-container"></div>
+
+        </div>
 
     </aside>
 
 </div>
 
 <script src="~/grapesjs/grapes.min.js"></script>
+
 <script src="~/js/editor-init.js"></script>
-
-
-

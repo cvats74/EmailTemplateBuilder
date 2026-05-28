@@ -4,75 +4,90 @@
 
     height: '100%',
 
-    storageManager: false,
+    width: 'auto',
 
     fromElement: false,
 
+    storageManager: false,
+
+    noticeOnUnload: false,
+
     selectorManager: {
-        appendTo: '#style-manager'
+        appendTo: '#styles-container'
     },
 
     styleManager: {
-        appendTo: '#style-manager'
+        appendTo: '#styles-container'
+    },
+
+    traitManager: {
+        appendTo: '#traits-container'
+    },
+
+    layerManager: {
+        appendTo: '#layers-container'
+    },
+
+    blockManager: {
+        appendTo: '#blocks-container'
     },
 
     panels: {
         defaults: []
     },
 
-    blockManager: {
-        appendTo: '.blocks-container'
+    deviceManager: {
+        devices: [
+            {
+                id: 'Desktop',
+                name: 'Desktop',
+                width: ''
+            },
+            {
+                id: 'Tablet',
+                name: 'Tablet',
+                width: '768px'
+            },
+            {
+                id: 'Mobile',
+                name: 'Mobile',
+                width: '375px'
+            }
+        ]
     }
 });
 
-/* BLOCKS */
+/* =========================
+   BASIC BLOCKS
+========================= */
 
-const blocks = editor.BlockManager;
+const bm = editor.BlockManager;
 
-blocks.add('text', {
+/* TEXT */
+
+bm.add('text', {
     label: 'Text',
     content: `
-        <div style="padding:10px;font-size:16px">
-            Insert your text here
+        <div style="padding:15px">
+            Insert text here
         </div>
     `
 });
 
-blocks.add('heading', {
+/* HEADING */
+
+bm.add('heading', {
     label: 'Heading',
     content: `
-        <h1 style="padding:10px">
+        <h1 style="padding:15px">
             Heading
         </h1>
     `
 });
 
-blocks.add('button', {
-    label: 'Button',
-    content: `
-        <a
-            href="#"
-            style="
-                display:inline-block;
-                padding:14px 24px;
-                background:#8b5cf6;
-                color:white;
-                border-radius:10px;
-                text-decoration:none;
-                font-weight:600;
-            "
-        >
-            Click Here
-        </a>
-    `
-});
+/* IMAGE */
 
-blocks.add('divider', {
-    label: 'Divider',
-    content: `<hr/>`
-});
-
-blocks.add('image', {
+bm.add('image', {
     label: 'Image',
     content: {
         type: 'image',
@@ -82,44 +97,206 @@ blocks.add('image', {
     }
 });
 
-/* EXPORT */
+/* BUTTON */
+
+bm.add('button', {
+    label: 'Button',
+    content: `
+        <button
+            style="
+                background:#8b5cf6;
+                color:white;
+                border:none;
+                border-radius:8px;
+                padding:14px 22px;
+            ">
+            Click Here
+        </button>
+    `
+});
+
+/* DIVIDER */
+
+bm.add('divider', {
+    label: 'Divider',
+    content: `<hr/>`
+});
+
+/* 2 COLUMNS */
+
+bm.add('2-columns', {
+    label: '2 Columns',
+    content: `
+        <div style="display:flex;gap:10px;padding:10px">
+            <div style="flex:1;padding:20px;background:#f1f5f9">
+                Column 1
+            </div>
+
+            <div style="flex:1;padding:20px;background:#f1f5f9">
+                Column 2
+            </div>
+        </div>
+    `
+});
+
+/* TABLE */
+
+bm.add('table', {
+    label: 'Table',
+    content: `
+        <table border="1" width="100%" cellpadding="10">
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+            </tr>
+
+            <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+            </tr>
+        </table>
+    `
+});
+
+/* =========================
+   DEVICE SWITCHING
+========================= */
+
+document
+    .getElementById('desktopBtn')
+    .onclick = () => editor.setDevice('Desktop');
+
+document
+    .getElementById('tabletBtn')
+    .onclick = () => editor.setDevice('Tablet');
+
+document
+    .getElementById('mobileBtn')
+    .onclick = () => editor.setDevice('Mobile');
+
+/* =========================
+   PREVIEW
+========================= */
+
+let previewMode = false;
+
+document
+    .getElementById('previewBtn')
+    .onclick = () => {
+
+        if (!previewMode) {
+
+            editor.runCommand('core:preview');
+
+        } else {
+
+            editor.stopCommand('core:preview');
+        }
+
+        previewMode = !previewMode;
+    };
+
+/* =========================
+   UNDO / REDO
+========================= */
+
+document
+    .getElementById('undoBtn')
+    .onclick = () => editor.UndoManager.undo();
+
+document
+    .getElementById('redoBtn')
+    .onclick = () => editor.UndoManager.redo();
+
+/* =========================
+   RESET
+========================= */
+
+document
+    .getElementById('clearBtn')
+    .onclick = () => {
+
+        if (confirm('Clear canvas?')) {
+
+            editor.DomComponents.clear();
+        }
+    };
+
+/* =========================
+   EXPORT HTML
+========================= */
 
 document
     .getElementById('exportBtn')
-    .addEventListener('click', () => {
+    .onclick = () => {
 
         const html = editor.getHtml();
+
         const css = editor.getCss();
 
         const finalHtml = `
-            <html>
-                <head>
-                    <style>${css}</style>
-                </head>
-                <body>
-                    ${html}
-                </body>
-            </html>
-        `;
+<!DOCTYPE html>
 
-        downloadFile(finalHtml);
-    });
+<html>
 
-function downloadFile(content) {
+<head>
 
-    const blob = new Blob([content], {
-        type: 'text/html'
-    });
+<meta charset="UTF-8">
 
-    const url = URL.createObjectURL(blob);
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+/>
 
-    const a = document.createElement('a');
+<style>
+${css}
+</style>
+
+</head>
+
+<body>
+
+${html}
+
+</body>
+
+</html>
+`;
+
+        downloadFile(
+            finalHtml,
+            'email-template.html'
+        );
+    };
+
+/* =========================
+   DOWNLOAD
+========================= */
+
+function downloadFile(content, filename) {
+
+    const blob = new Blob(
+        [content],
+        {
+            type: 'text/html'
+        }
+    );
+
+    const url =
+        URL.createObjectURL(blob);
+
+    const a =
+        document.createElement('a');
 
     a.href = url;
 
-    a.download = 'template.html';
+    a.download = filename;
+
+    document.body.appendChild(a);
 
     a.click();
+
+    document.body.removeChild(a);
 
     URL.revokeObjectURL(url);
 }
