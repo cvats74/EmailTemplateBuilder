@@ -1,0 +1,68 @@
+﻿
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Inter, sans-serif;
+    background: #0f172a;
+}
+
+.editor-shell {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.topbar {
+    height: 64px;
+    background: #111827;
+    border-bottom: 1px solid #1f2937;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    color: white;
+}
+
+.topbar-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.topbar button {
+    border: none;
+    background: #2563eb;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.editor-layout {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.left-sidebar {
+    width: 280px;
+    background: #111827;
+    border-right: 1px solid #1f2937;
+    overflow-y: auto;
+}
+
+.right-sidebar {
+    width: 320px;
+    background: #111827;
+    border-left: 1px solid #1f2937;
+    overflow-y: auto;
+}
+
+.editor-main {
+    flex: 1;
+    background: #e5e7eb;
+}
+
+#gjs {
+    height: 100%;
+}

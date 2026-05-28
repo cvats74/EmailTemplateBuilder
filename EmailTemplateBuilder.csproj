@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\grapesjs\" />
+    <Folder Include="wwwroot\js\NewFolder\" />
   </ItemGroup>
 
 </Project>

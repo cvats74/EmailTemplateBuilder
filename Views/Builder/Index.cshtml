@@ -1,126 +1,43 @@
-﻿@{
-    ViewData["Title"] = "Email Builder";
-}
+﻿<header class="topbar">
 
-<link rel="stylesheet" href="~/grapesjs/grapes.min.css" />
-<link rel="stylesheet" href="~/css/builder.css" />
+    <div class="topbar-left">
+        <h2> Email Builder</h2>
+    </div>
 
-<div class="app-container">
+    <div class="topbar-actions">
 
-    <!-- LEFT SIDEBAR -->
+        <button id="btn-save"> Save</button>
+
+        <button id="btn-undo"> Undo</button>
+
+        <button id="btn-redo"> Redo</button>
+
+        <button id="btn-preview"> Preview</button>
+
+    </div>
+
+</header>
+
+<div class="editor-layout">
 
     <aside class="left-sidebar">
 
-        <div class="logo">
-            Email Builder
-        </div>
-
-        <div class="sidebar-section">
-
-            <div class="section-title">
-                BLOCKS
-            </div>
-
-            <div id="blocks-container"></div>
-
-        </div>
+        <div id="blocks-container"> </div>
 
     </aside>
 
-    <!-- MAIN -->
+    <main class="editor-main">
 
-    <main class="main-content">
-
-        <!-- TOPBAR -->
-
-        <header class="topbar">
-
-            <div class="toolbar-left">
-
-                <button id="desktopBtn" class="toolbar-btn">
-                    Desktop
-                </button>
-
-                <button id="tabletBtn" class="toolbar-btn">
-                    Tablet
-                </button>
-
-                <button id="mobileBtn" class="toolbar-btn">
-                    Mobile
-                </button>
-
-            </div>
-
-            <div class="toolbar-right">
-
-                <button id="undoBtn" class="toolbar-btn">
-                    Undo
-                </button>
-
-                <button id="redoBtn" class="toolbar-btn">
-                    Redo
-                </button>
-
-                <button id="previewBtn" class="toolbar-btn">
-                    Preview
-                </button>
-
-                <button id="clearBtn" class="toolbar-btn">
-                    Reset
-                </button>
-
-                <button id="exportBtn" class="export-btn">
-                    Export HTML
-                </button>
-
-            </div>
-
-        </header>
-
-        <!-- EDITOR -->
-
-        <section class="editor-area">
-
-            <div id="gjs"></div>
-
-        </section>
+        <div id="gjs"> </div>
 
     </main>
 
-    <!-- RIGHT SIDEBAR -->
-
     <aside class="right-sidebar">
 
-        <div class="panel-tabs">
+        <div id="styles-container"> </div>
 
-            <button class="tab-btn">
-                Styles
-            </button>
-
-            <button class="tab-btn">
-                Layers
-            </button>
-
-            <button class="tab-btn">
-                Traits
-            </button>
-
-        </div>
-
-        <div class="panel-content">
-
-            <div id="styles-container"></div>
-
-            <div id="layers-container"></div>
-
-            <div id="traits-container"></div>
-
-        </div>
+        <div id="layers-container"> </div>
 
     </aside>
 
 </div>
-
-<script src="~/grapesjs/grapes.min.js"></script>
-
-<script src="~/js/editor-init.js"></script>
