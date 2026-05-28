@@ -1,0 +1,217 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    font-family: Inter, sans-serif;
+    background: #0f172a;
+}
+
+/* MAIN APP */
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    background: #0f172a;
+}
+
+/* LEFT SIDEBAR */
+
+.left-sidebar {
+    width: 300px;
+    background: #111827;
+    border-right: 1px solid #1f2937;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* LOGO */
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 30px;
+}
+
+/* SECTION */
+
+.section-title {
+    color: #94a3b8;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* BLOCKS */
+
+.blocks-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* BLOCK CARD */
+
+.gjs-block {
+    width: 100% !important;
+    min-height: 100px;
+    background: #1e293b !important;
+    border: 1px solid #334155 !important;
+    border-radius: 14px;
+    color: white !important;
+    box-shadow: none !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+    .gjs-block:hover {
+        transform: translateY(-3px);
+        border-color: #8b5cf6 !important;
+        background: #312e81 !important;
+    }
+
+/* MAIN AREA */
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* TOPBAR */
+
+.topbar {
+    height: 70px;
+    background: #111827;
+    border-bottom: 1px solid #1f2937;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+}
+
+/* TOOLBAR BUTTONS */
+
+.toolbar-btn {
+    height: 42px;
+    padding: 0 18px;
+    border: 1px solid #374151;
+    background: #1f2937;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: all 0.2s ease;
+}
+
+    .toolbar-btn:hover {
+        background: #374151;
+    }
+
+/* EXPORT BUTTON */
+
+.export-btn {
+    height: 42px;
+    padding: 0 22px;
+    border: none;
+    background: linear-gradient( 135deg, #8b5cf6, #6366f1 );
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+    .export-btn:hover {
+        transform: translateY(-2px);
+    }
+
+/* EDITOR AREA */
+
+.editor-area {
+    flex: 1;
+    padding: 25px;
+    overflow: hidden;
+    background: radial-gradient( circle at top left, rgba(99,102,241,0.15), transparent 40% ), #0f172a;
+}
+
+/* GRAPES CONTAINER */
+
+#gjs {
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #1f2937;
+}
+
+/* RIGHT SIDEBAR */
+
+.right-sidebar {
+    width: 320px;
+    background: #111827;
+    border-left: 1px solid #1f2937;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* STYLE MANAGER */
+
+.gjs-sm-sector {
+    background: #1e293b;
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none !important;
+}
+
+.gjs-sm-title {
+    background: transparent !important;
+    color: white !important;
+    border: none !important;
+}
+
+.gjs-sm-label {
+    color: #cbd5e1 !important;
+}
+
+.gjs-field {
+    background: #0f172a !important;
+    border-radius: 8px !important;
+    border: 1px solid #334155 !important;
+}
+
+.gjs-input-holder input {
+    color: white !important;
+}
+
+/* CANVAS */
+
+.gjs-cv-canvas {
+    background-color: #e5e7eb !important;
+}
+
+/* REMOVE DEFAULT BORDERS */
+
+.gjs-one-bg {
+    background: #111827 !important;
+}
+
+.gjs-two-color {
+    color: white !important;
+}
+
+.gjs-three-bg {
+    background: #8b5cf6 !important;
+}
+
+.gjs-four-color,
+.gjs-four-color-h:hover {
+    color: #8b5cf6 !important;
+}

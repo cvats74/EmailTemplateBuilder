@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Email Builder";
+}
+
+<link rel="stylesheet" href="~/grapesjs/grapes.min.css" />
+<link rel="stylesheet" href="~/css/builder.css" />
+
+<div class="app-container">
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="left-sidebar">
+
+        <div class="logo">
+            EmailBuilder
+        </div>
+
+        <div class="sidebar-section">
+
+            <div class="section-title">
+                BLOCKS
+            </div>
+
+            <div class="blocks-container"></div>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN AREA -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button class="toolbar-btn">
+                    Desktop
+                </button>
+
+                <button class="toolbar-btn">
+                    Mobile
+                </button>
+
+            </div>
+
+            <div class="topbar-right">
+
+                <button class="toolbar-btn">
+                    Preview
+                </button>
+
+                <button id="exportBtn" class="export-btn">
+                    Export HTML
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- EDITOR -->
+        <section class="editor-area">
+
+            <div id="gjs"></div>
+
+        </section>
+
+    </main>
+
+    <!-- RIGHT PANEL -->
+    <aside class="right-sidebar">
+
+        <div class="section-title">
+            STYLES
+        </div>
+
+        <div id="style-manager"></div>
+
+    </aside>
+
+</div>
+
+<script src="~/grapesjs/grapes.min.js"></script>
+<script src="~/js/editor-init.js"></script>
+
+
+
